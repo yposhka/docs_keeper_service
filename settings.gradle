@@ -1,0 +1,4 @@
+rootProject.name = 'docs-keeper-service'
+include 'database'
+include 'service'
+

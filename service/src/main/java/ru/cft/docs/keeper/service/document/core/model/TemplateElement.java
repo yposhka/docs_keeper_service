@@ -1,0 +1,23 @@
+package ru.cft.docs.keeper.service.document.core.model;
+
+import lombok.Builder;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
+
+@Value
+@RequiredArgsConstructor
+@Builder(builderClassName = "Builder", toBuilder = true)
+public class TemplateElement {
+
+    String type;
+
+    String name;
+
+    String title;
+
+    String hint;
+
+    String regularExpression;
+
+    Boolean isRequired;
+}

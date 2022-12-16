@@ -1,0 +1,20 @@
+apply plugin: 'org.flywaydb.flyway'
+
+flyway {
+    url = project.properties['flyway.url']
+    user = project.properties['flyway.user']
+    password = project.properties['flyway.password']
+    locations = ['filesystem:' + projectDir.path + '/scripts/migrations']
+    schemas = project.properties['flyway.schemas'].split(',')
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.flywaydb:flyway-gradle-plugin:6.0.0"
+        classpath "org.postgresql:postgresql:42.0.0"
+    }
+}

@@ -1,0 +1,44 @@
+buildscript {
+	ext {
+		springBootVersion = '2.7.5'
+
+		repos = {
+			mavenCentral()
+		}
+	}
+	repositories repos
+
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+	}
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
+
+	java {
+		toolchain {
+			languageVersion = JavaLanguageVersion.of(11)
+		}
+	}
+
+	repositories repos
+	buildscript {
+		repositories repos
+	}
+
+	group = 'ru.cft.docs.keeper'
+	version = '0.0.1-SNAPSHOT'
+
+	dependencies {
+		implementation platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+		annotationProcessor platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+	}
+}
+
+
+
+
+
+
